@@ -1,0 +1,17 @@
+{
+  "name": "simple-ai-test",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch && node dist/index.js",
+    "start": "node dist/index.js"
+  },
+  "author": "Amir Kangarloo <amirkangarloo1051@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "typescript": "^5.7.3"
+  }
+}
