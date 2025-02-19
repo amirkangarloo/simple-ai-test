@@ -3,15 +3,20 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch && node dist/index.js",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "dev": "pnpm tsc && pnpm start"
   },
   "author": "Amir Kangarloo <amirkangarloo1051@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.13.4",
     "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "ai": "^4.1.42",
+    "ollama-ai-provider": "^1.2.0"
   }
 }

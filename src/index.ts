@@ -1,12 +1,28 @@
-import { createServer } from 'http'; // Import Node modules using ES6 syntax, which TypeScript supports thanks to type definitions installed with @types/node package 
+import { streamText } from "ai";
+import { createOllama } from 'ollama-ai-provider';
 
-const http = createServer();
-// Handle requests here or add more logic as required for your application. For example:
-http.on('request', (req, res) => {
-    const data = JSON.stringify({ message: 'Hello from TypeScript-enabled Node.js server!' }); // A simple response body 
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(data);
-});
-http.listen(3000, () => {
-   console.log('Server running on http://localhost:3000');
-});
+const ollama = createOllama({}); // default lessen on port  11434 on localhost
+
+const model = ollama('phi3');
+
+
+export const answerMyQuestion = async (
+  prompt: string,
+) => {
+  const { textStream } = await streamText({
+    model,
+    prompt,
+  });
+    
+    for await (const text of textStream) {
+      process.stdout.write(text);
+    }
+
+  return textStream;
+};
+
+const answer = await answerMyQuestion(
+  "what is the meaning of life?",
+);
+
+console.log(answer);

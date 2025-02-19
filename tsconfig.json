@@ -1,7 +1,7 @@
 {  
   "compilerOptions": {  
     "target": "ES2020",                      // Specifies ECMAScript target version  
-    "module": "commonjs",                    // Specifies the module code generation  
+    "module": "NodeNext",                    // Specifies the module code generation  
     "rootDir": "./src",                      // Specifies the root directory of input files  
     "outDir": "./dist",                      // Redirects output structure to the 'dist' directory  
     "strict": true,                          // Enable all strict type-checking options  
